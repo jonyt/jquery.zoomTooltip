@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Jquery.zoomtooltip : A plugin for jQuery that allows a zoomed version of a thumbnail to be used as a tooltip." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Jquery.zoomtooltip</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/jonyt/jquery.zoomTooltip">View on GitHub</a>
+
+          <h1 id="project_title">Jquery.zoomtooltip</h1>
+          <h2 id="project_tagline">A plugin for jQuery that allows a zoomed version of a thumbnail to be used as a tooltip.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/jonyt/jquery.zoomTooltip/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/jonyt/jquery.zoomTooltip/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>A plugin for jQuery that allows a zoomed version of a thumbnail to be used as a tooltip. This is useful for sites like Faceboook where you want to give the user the ability to hover over a thumbnail and see the large version.</p>
+
+<p>Load jQuery and jquery.zoomTooltip with:</p>
+
+<pre><code>     &lt;script type="text/javascript" src="jquery.min.js"&gt;&lt;/script&gt;
+     &lt;script type="text/javascript" src="jquery.zoomTooltip.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>Then use it with:</p>
+
+<pre><code>    var imageIdentifier = {
+        identifier: function($img){ return $img.prop("tagName") === "IMG"; },
+        handler: function($img){ return "zoom.jpg"; }
+    };
+    $(document).ready(function(){
+        $('#someDiv').zoomTooltip([imageIdentifier], settings); // Will enable zoom tooltip on elements under #someDiv
+    });
+</code></pre>
+
+<p>Where each <code>imageIdentifier</code> object has an <code>identifier</code> property which returns a boolean indicating whether this thumbnail can be zoomed, and a <code>handler</code> property which returns the zoomed image URL. </p>
+
+<p>You can also play with the settings. Available keys are:</p>
+
+<ul>
+<li>smallImgClassName - class name added to the thumbnail</li>
+<li>zoomedImgClassName - class name added to the zoomed image</li>
+<li>loader - URL for the loading spinner</li>
+<li>zoomedImageCss - CSS for the zoomed image</li>
+<li>loaderCss - CSS for the loading spinner </li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Jquery.zoomtooltip maintained by <a href="https://github.com/jonyt">jonyt</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-32863743-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
