@@ -54,7 +54,7 @@
 			zoomedImgClassName: 'zt-zoomed',
 			dbKeyDimensions:    'originalDimensions',
 			dbKeyZoomedImg:     'zoomedImage',
-			loader:             'ajax-loader.gif'
+			loader:             'ajax-loader.gif',
 			zoomedImageCss:     {
 									padding:    '5px', 
 									background: 'white'
