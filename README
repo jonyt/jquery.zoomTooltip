@@ -24,4 +24,3 @@ You can also play with the settings. Available keys are:
 * loader - URL for the loading spinner
 * zoomedImageCss - CSS for the zoomed image
 * loaderCss - CSS for the loading spinner
-
