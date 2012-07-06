@@ -56,7 +56,7 @@
 			dbKeyZoomedImg:     'zoomedImage',
 			zoomedImageCss:     {
 									padding:    '5px', 
-									background: 'white'
+									background: 'white'									
 								},
 			loaderCss:          {
 									opacity:         0.8,
@@ -99,7 +99,7 @@
 							'class': options.zoomedImgClassName, 
 							src:     zoomedImageUrl, 
 							alt:     ''
-						}),
+						}).css({visibility: 'hidden'}),
 						$body = $('body');
 					loader.load(function(){
 						$(this).css($.extend({							
@@ -117,10 +117,11 @@
 							width:  $(this).width(), 
 							height: $(this).height()
 						});
-						$(this).css($.extend({
+						$(this).css($.extend(options.zoomedImageCss, {
+						    visibility: 'visible',
 							position:   'absolute', 
 							zIndex:     999							
-						}, options.zoomedImageCss));
+						}));
 						setPositionAndDimensions(e, this, $.data($el, options.dbKeyDimensions));
 						loader.remove();
 					});
