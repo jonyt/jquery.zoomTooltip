@@ -1,24 +1,3 @@
-/*Copyright (c) 2012 Jonathan Yom-Tov
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*/
-
 (function ($) {
 	'use strict';
 	var handlers = []; // Each handler should have an 'identifier' property which is a function returning a boolean indicating
@@ -75,10 +54,9 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*/
 			zoomedImgClassName: 'zt-zoomed',
 			dbKeyDimensions:    'originalDimensions',
 			dbKeyZoomedImg:     'zoomedImage',
-			loader:             'ajax-loader.gif',
 			zoomedImageCss:     {
 									padding:    '5px', 
-									background: 'white'
+									background: 'white'									
 								},
 			loaderCss:          {
 									opacity:         0.8,
@@ -113,14 +91,15 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*/
 					}
 				} else { // First time we've seen this element so we need to set up everything						
 					var loader = $('<img />', { // Spinner
-							src: options.loader,
+							id:  'loader',
+							src: 'ajax-loader.gif',
 							alt: 'Loading...'
 						}),
 						zoomImage = $('<img />', { // The zoom image
 							'class': options.zoomedImgClassName, 
 							src:     zoomedImageUrl, 
 							alt:     ''
-						}),
+						}).css({visibility: 'hidden'}),
 						$body = $('body');
 					loader.load(function(){
 						$(this).css($.extend({							
@@ -138,10 +117,11 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*/
 							width:  $(this).width(), 
 							height: $(this).height()
 						});
-						$(this).css($.extend({
+						$(this).css($.extend(options.zoomedImageCss, {
+						    visibility: 'visible',
 							position:   'absolute', 
 							zIndex:     999							
-						}, options.zoomedImageCss));
+						}));
 						setPositionAndDimensions(e, this, $.data($el, options.dbKeyDimensions));
 						loader.remove();
 					});

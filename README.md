@@ -1,4 +1,4 @@
-A plugin for jQuery that allows a zoomed version of a thumbnail to be used as a tooltip. This is useful for sites like Faceboook where you want to give the user the ability to hover over a thumbnail and see the large version.
+A plugin for jQuery that allows a zoomed version of a thumbnail to be used as a tooltip. This is useful for sites like Faceboook where you want to give the user the ability to hover over a thumbnail and see the large version. Check out the [demo](http://jonyt.github.com/jquery.zoomTooltip/demo.html).
 
 Load jQuery and jquery.zoomTooltip with:
 ```
